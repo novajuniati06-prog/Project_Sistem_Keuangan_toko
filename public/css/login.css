@@ -34,8 +34,8 @@ body{
     justify-content: center;
 }
 
-.left-panel h1{
-    font-size: 60px;
+.left-panel h2{
+    font-size: 50px;
     color: #69b6b6;
     margin-bottom: 20px;
     font-family: Georgia, serif;
@@ -44,6 +44,7 @@ body{
 .left-panel img{
     width: 85%;
     max-width: 430px;
+    opacity: 0.5;
 }
 
 /* RIGHT */
