@@ -17,4 +17,8 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+
+Route::get('/mitrabisnis', function () {
+    return view('mitrabisnis');
+});
 // Route::get('/logout', [LoginController::class, 'logout']);

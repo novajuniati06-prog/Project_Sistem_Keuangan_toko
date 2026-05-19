@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #eef2f7;
+    overflow: hidden;
+}
+
+/* CONTAINER */
+
+.dashboard-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 170px;
+    height: 100vh;
+    background: linear-gradient(180deg, #1738a8, #3567ff);
+    padding-top: 18px;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 18px;
+    margin-bottom: 35px;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+}
+
+.logo-text h2 {
+    font-size: 18px;
+    line-height: 1.1;
+}
+
+/* MENU */
+
+.menu {
+    list-style: none;
+}
+
+.menu li {
+    margin-bottom: 6px;
+}
+
+.menu li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    text-decoration: none;
+    padding: 13px 22px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.menu li a i {
+    font-size: 22px;
+}
+
+.menu li.active a {
+    background: #4677ff;
+    border-radius: 0 14px 14px 0;
+}
+
+.menu li a:hover {
+    background: #4677ff;
+    border-radius: 0 14px 14px 0;
+}
+
+/* MAIN */
+
+.main-content {
+    flex: 1;
+    padding: 10px 14px;
+}
+
+/* TOPBAR */
+
+.topbar {
+    height: 72px;
+    background: white;
+    border-radius: 20px;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile i {
+    color: #3567ff;
+    font-size: 22px;
+}
+
+.profile-text h4 {
+    font-size: 16px;
+    color: #111;
+}
+
+.profile-text p {
+    font-size: 13px;
+    color: #666;
+}
+
+/* CONTENT */
+
+.content {
+    margin-top: 28px;
+    transform: scale(0.95);
+    transform-origin: top left;
+}
+
+.content h1 {
+    color: #3567ff;
+    font-size: 24px;
+    margin-bottom: 18px;
+}
+
+/* ACTION */
+
+.action-bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.btn-add {
+    height: 40px;
+    padding: 0 18px;
+    border: none;
+    border-radius: 10px;
+    background: #3567ff;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.search-box {
+    width: 250px;
+    height: 38px;
+    background: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+/* TABLE */
+
+.table-container {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #4377f6;
+    color: white;
+}
+
+thead th {
+    padding: 10px 12px;
+    font-size: 12px;
+    text-align: left;
+}
+
+tbody {
+    background: #6ea5f7;
+    color: white;
+}
+
+tbody td {
+    padding: 10px 12px;
+    font-size: 12px;
+}
+
+/* BUTTONS */
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.edit,
+.delete {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+.edit {
+    background: #ffd500;
+}
+
+.delete {
+    background: #ff0000;
+}
+
+/* PAGINATION */
+
+.pagination {
+    margin-top: 235px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 18px;
+}
+
+.pagination p {
+    color: #4677ff;
+    font-size: 13px;
+}
+
+.pages {
+    display: flex;
+    gap: 8px;
+}
+
+.pages button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: white;
+    color: #666;
+    cursor: pointer;
+}
+
+.pages .active-page {
+    background: #3567ff;
+    color: white;
+}
