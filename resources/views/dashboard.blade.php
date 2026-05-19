@@ -94,7 +94,7 @@
                     <!-- DROPDOWN -->
                     <div class="dropdown-menu">
 
-                        <a href="#">
+                        <a href="login">
                             <i class='bx bx-log-out'></i>
                             Logout
                         </a>

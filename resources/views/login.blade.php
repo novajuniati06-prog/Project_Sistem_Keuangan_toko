@@ -92,7 +92,7 @@
 
         <p class="signup">
           Belum punya akun?
-          <a href="#">Klik disini</a>
+          <a href="register">Klik disini</a>
         </p>
 
       </div>

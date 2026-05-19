@@ -71,9 +71,9 @@ body {
     font-size: 20px;
 }
 
-.menu li.active {
+/* .menu li.active {
     background: #3461ff;
-}
+} */
 
 .menu li:hover {
     background: rgba(255, 255, 255, 0.12);
@@ -154,7 +154,7 @@ body {
     text-decoration: none;
     color: #374151;
     font-size: 14px;
-    transition: 0.3s;
+    transition: 60s;
 }
 
 .dropdown-menu a:hover {
