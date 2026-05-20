@@ -1,221 +1,248 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('layouts.add')
 
-    <title>Dashboard - Delta Finance</title>
+@section('title', 'Dashboard')
 
-    <!-- FONT -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+@endsection
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+@section('content')
 
-    <!-- BOXICONS -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<div class="container">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
-</head>
+    <!-- SIDEBAR -->
 
-<body>
+    <div class="sidebar">
 
-    <div class="dashboard-container">
+        <div class="logo">
 
-        <!-- SIDEBAR -->
-        <div class="sidebar">
+            <img src="{{ asset('image/img.png') }}">
 
-            <!-- LOGO -->
-            <div class="logo">
-
-                <img src="https://cdn-icons-png.flaticon.com/512/6997/6997662.png" alt="">
-
-                <div class="logo-text">
-                    <h2>Delta</h2>
-                    <h2>Finance</h2>
-                </div>
-
-            </div>
-
-            <!-- MENU -->
-            <ul class="menu">
-
-                <li class="active">
-                    <i class='bx bx-home-alt'></i>
-                    <span>Dashboard</span>
-                </li>
-
-                <li>
-                    <i class='bx bx-group'></i>
-                    <span>Mitra Bisnis</span>
-                </li>
-
-                <li>
-                    <i class='bx bx-wallet'></i>
-                    <span>Akun Keuangan</span>
-                </li>
-
-                <li>
-                    <i class='bx bx-credit-card'></i>
-                    <span>Transaksi Kas</span>
-                </li>
-
-                <li>
-                    <i class='bx bx-file'></i>
-                    <span>Laporan Keuangan</span>
-                </li>
-
-            </ul>
+            <h2>
+                Delta <br>
+                Finance
+            </h2>
 
         </div>
 
-        <!-- MAIN -->
-        <div class="main-content">
+        <ul>
 
-            <!-- TOPBAR -->
-            <div class="topbar">
+            <li class="active">
 
-                <div class="profile">
+                <a href="{{ route('dashboard') }}">
 
-                    <div class="profile-header">
+                    <i class='bx bx-home'></i>
 
-                        <i class='bx bx-user'></i>
+                    Dashboard
 
-                        <div class="profile-text">
-                            <h4>Nama</h4>
-                            <p>Administrator</p>
-                        </div>
+                </a>
 
-                        <i class='bx bx-chevron-down'></i>
+            </li>
 
+            <li>
+
+                <a href="{{ route('mitrabisnis') }}">
+
+                    <i class='bx bx-group'></i>
+
+                    Mitra Bisnis
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{{ route('akunkeuangan') }}">
+
+                    <i class='bx bx-wallet'></i>
+
+                    Akun Keuangan
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#">
+
+                    <i class='bx bx-credit-card'></i>
+
+                    Transaksi Kas
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#">
+
+                    <i class='bx bx-file'></i>
+
+                    Laporan Keuangan
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- MAIN -->
+
+    <div class="main">
+
+        <!-- TOPBAR -->
+
+        <div class="topbar">
+
+            <div class="profile">
+
+    <div class="profile-header">
+
+        <i class='bx bx-user user-icon'></i>
+
+        <div class="profile-text">
+
+            <h4>Nama</h4>
+
+            <p>Administrator</p>
+
+        </div>
+
+        <i class='bx bx-chevron-down dropdown-icon'></i>
+
+    </div>
+
+    <!-- DROPDOWN -->
+
+    <div class="profile-dropdown">
+
+        <a href="{{ route('login') }}">
+
+            <i class='bx bx-log-out'></i>
+
+            Logout
+
+        </a>
+
+    </div>
+
+</div>
+
+        </div>
+
+        <!-- TITLE -->
+
+        <h1 class="welcome">
+            Welcome back, <span>(nama)</span> !
+        </h1>
+
+        <!-- CARDS -->
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-top">
+
+                    <div class="icon blue">
+                        <i class='bx bxs-wallet'></i>
                     </div>
 
-                    <!-- DROPDOWN -->
-                    <div class="dropdown-menu">
-
-                        <a href="#">
-                            <i class='bx bx-log-out'></i>
-                            Logout
-                        </a>
-
-                    </div>
+                    <h3>
+                        Transaksi Keluar <br>
+                        Hari ini
+                    </h3>
 
                 </div>
+
+                <h2>Rp. -</h2>
 
             </div>
 
-            <!-- CONTENT -->
-            <div class="content">
+            <div class="card">
 
-                <h1>
-                    Welcome back,
-                    <span>(nama)</span> !
-                </h1>
+                <div class="card-top">
 
-                <!-- CARD -->
-                <div class="cards">
-
-                    <div class="card">
-
-                        <div class="card-top">
-
-                            <div class="icon">
-                                <i class='bx bx-line-chart'></i>
-                            </div>
-
-                            <p>
-                                Transaksi Keluar Hari ini
-                            </p>
-
-                        </div>
-
-                        <h2>Rp. -</h2>
-
+                    <div class="icon blue">
+                        <i class='bx bxs-box'></i>
                     </div>
 
-                    <div class="card">
-
-                        <div class="card-top">
-
-                            <div class="icon">
-                                <i class='bx bx-envelope'></i>
-                            </div>
-
-                            <p>
-                                Transaksi Masuk Hari ini
-                            </p>
-
-                        </div>
-
-                        <h2>Rp. -</h2>
-
-                    </div>
-
-                    <div class="card">
-
-                        <div class="card-top">
-
-                            <div class="icon">
-                                <i class='bx bx-wallet'></i>
-                            </div>
-
-                            <p>
-                                Total Transaksi Hari ini
-                            </p>
-
-                        </div>
-
-                        <h2>Rp. -</h2>
-
-                    </div>
-
-                    <div class="card">
-
-                        <div class="card-top">
-
-                            <div class="icon">
-                                <i class='bx bx-credit-card'></i>
-                            </div>
-
-                            <p>
-                                Total Transaksi Keseluruhan
-                            </p>
-
-                        </div>
-
-                        <h2>Rp. -</h2>
-
-                    </div>
+                    <h3>
+                        Transaksi Masuk <br>
+                        Hari ini
+                    </h3>
 
                 </div>
 
-                <!-- CHART -->
-                <div class="chart-box">
+                <h2>Rp. -</h2>
 
-                    <h3>Ringkasan Bulan ini</h3>
+            </div>
 
-                    <div class="legend">
+            <div class="card">
 
-                        <div class="legend-item">
+                <div class="card-top">
 
-                            <div class="circle green"></div>
-
-                            <span>Transaksi Masuk</span>
-
-                        </div>
-
-                        <div class="legend-item">
-
-                            <div class="circle pink"></div>
-
-                            <span>Transaksi Keluar</span>
-
-                        </div>
-
+                    <div class="icon blue">
+                        <i class='bx bxs-wallet-alt'></i>
                     </div>
 
+                    <h3>
+                        Total Transaksi <br>
+                        Hari ini
+                    </h3>
+
                 </div>
+
+                <h2>Rp. -</h2>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-top">
+
+                    <div class="icon blue">
+                        <i class='bx bxs-credit-card'></i>
+                    </div>
+
+                    <h3>
+                        Total Transaksi <br>
+                        Keseluruhan
+                    </h3>
+
+                </div>
+
+                <h2>Rp. -</h2>
+
+            </div>
+
+        </div>
+
+        <!-- RINGKASAN -->
+
+        <div class="summary">
+
+            <h3>Ringkasan Bulan ini</h3>
+
+            <div class="summary-item">
+
+                <div class="circle green"></div>
+
+                <p>Transaksi Masuk</p>
+
+            </div>
+
+            <div class="summary-item">
+
+                <div class="circle pink"></div>
+
+                <p>Transaksi Keluar</p>
 
             </div>
 
@@ -223,5 +250,10 @@
 
     </div>
 
-</body>
-</html>
+</div>
+
+@endsection
+
+@section('js')
+<script src="{{ asset('js/dashboard.js') }}"></script>
+@endsection

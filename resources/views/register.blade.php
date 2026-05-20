@@ -1,159 +1,177 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('layouts.add')
 
-    <title>Delta Finance</title>
+@section('title', 'Register')
 
-    <!-- FONT -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/register.css') }}">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+@endsection
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+@section('content')
 
-    <!-- BOX ICON -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<div class="container">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
-</head>
+    <!-- LEFT -->
 
-<body>
+    <div class="left">
 
-    <div class="container">
+        <div class="logo">
 
-        <!-- LEFT -->
-        <div class="left">
+            <h1>
+                Delta <br>
+                Finance
+            </h1>
 
-            <div class="brand">
-                <h1>Delta <br> Finance</h1>
-
-                <p>
-                    Kelola keuangan bisnis Anda lebih mudah,
-                    aman, dan efisien
-                </p>
-            </div>
-
-            <div class="illustration">
-                <img src="{{ asset('image/img.png') }}" alt="finance illustration">
-            </div>
-
-        </div>
-
-        <!-- RIGHT -->
-        <div class="right">
-
-            <h2>Buat Akun Baru</h2>
-
-            <p class="sub">
-                Lengkapi data diri Anda untuk membuat akun Delta Finance
+            <p>
+                Kelola keuangan bisnis Anda <br>
+                lebih mudah, aman, dan efisien
             </p>
 
-            <form action="">
-
-                <!-- NAMA -->
-                <div class="form-group">
-
-                    <label>Nama Lengkap</label>
-
-                    <div class="input-box">
-                        <i class='bx bx-user'></i>
-
-                        <input
-                            type="text"
-                            placeholder="Masukkan nama lengkap Anda"
-                        >
-                    </div>
-
-                </div>
-
-                <!-- EMAIL -->
-                <div class="form-group">
-
-                    <label>Email</label>
-
-                    <div class="input-box">
-                        <i class='bx bx-envelope'></i>
-
-                        <input
-                            type="email"
-                            placeholder="Masukkan Email Anda"
-                        >
-                    </div>
-
-                </div>
-
-                <!-- PASSWORD -->
-                <div class="form-group">
-
-                    <label>Kata Sandi</label>
-
-                    <div class="input-box">
-                        <i class='bx bx-lock-alt'></i>
-
-                        <input
-                            type="password"
-                            placeholder="Masukkan kata sandi Anda"
-                        >
-                    </div>
-
-                </div>
-
-                <!-- KONFIRMASI -->
-                <div class="form-group">
-
-                    <label>Konfirmasi Kata Sandi</label>
-
-                    <div class="input-box">
-                        <i class='bx bx-lock-alt'></i>
-
-                        <input
-                            type="password"
-                            placeholder="Ulangi kata sandi Anda"
-                        >
-                    </div>
-
-                </div>
-
-                <!-- RULES -->
-                <div class="rules">
-
-                    <p>Kata sandi harus mengandung:</p>
-
-                    <ul>
-                        <li>Minimal 8 karakter</li>
-                        <li>Mengandung huruf besar dan kecil</li>
-                        <li>Mengandung angka</li>
-                        <li>Mengandung simbol (!@#)</li>
-                    </ul>
-
-                </div>
-
-                <!-- TERMS -->
-                <div class="terms">
-
-                    <input type="checkbox">
-
-                    <label>
-                        Saya setuju dengan
-                        <span>Syarat & ketentuan</span>
-                        dan
-                        <span>Kebijakan Privasi</span>
-                    </label>
-
-                </div>
-
-                <!-- BUTTON -->
-                <button type="submit" class="btn">
-                    Daftar
-                </button>
-
-            </form>
-
         </div>
+
+        <img src="{{ asset('image/img.png') }}" class="illustration">
 
     </div>
 
-</body>
-</html>
+    <!-- RIGHT -->
+
+    <div class="right">
+
+        <div class="back">
+
+            <a href="{{ route('login') }}">
+                <i class='bx bx-arrow-back'></i>
+            </a>
+
+        </div>
+
+        <h1>Buat Akun Baru</h1>
+
+        <p class="subtitle">
+            Lengkapi data diri Anda untuk membuat akun Delta Finance
+        </p>
+
+        <form action="/register" method="POST">
+        @csrf
+
+            <!-- NAMA -->
+
+            <label>Nama Lengkap</label>
+
+            <div class="input-box">
+
+                <i class='bx bx-user'></i>
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Masukkan nama lengkap Anda"
+                >
+
+            </div>
+            @error('name')
+    <small class="error-text">{{ $message }}</small>
+@enderror
+
+            <!-- EMAIL -->
+
+            <label>Email</label>
+
+            <div class="input-box">
+
+                <i class='bx bx-envelope'></i>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Masukkan Email Anda"
+                >
+
+            </div>
+            @error('email')
+    <small class="error-text">{{ $message }}</small>
+@enderror
+
+            <!-- PASSWORD -->
+
+            <label>Kata Sandi</label>
+
+            <div class="input-box">
+
+                <i class='bx bx-lock-alt'></i>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Masukkan kata sandi Anda"
+                >
+
+            </div>
+            @error('password')
+    <small class="error-text">{{ $message }}</small>
+@enderror
+
+            <!-- KONFIRMASI -->
+
+            <label>Konfirmasi Kata Sandi</label>
+
+            <div class="input-box">
+
+                <i class='bx bx-lock-alt'></i>
+
+                <input
+                    type="password"
+                    name="password_confirmation"
+                    placeholder="Ulangi kata sandi Anda"
+                >
+
+            </div>
+            @error('password_confirmation')
+    <small class="error-text">{{ $message }}</small>
+@enderror
+
+            <!-- PASSWORD INFO -->
+
+            <div class="password-info">
+
+                <h4>Kata sandi harus mengandung:</h4>
+
+                <p>✔ Minimal 8 karakter</p>
+                <p>✔ Mengandung huruf besar dan kecil</p>
+                <p>✔ Mengandung angka</p>
+                <p>✔ Mengandung simbol (contoh: !@#)</p>
+
+            </div>
+
+            <!-- CHECKBOX -->
+
+            <div class="agree">
+
+                <input type="checkbox">
+
+                <span>
+                    Saya setuju dengan
+                    <a href="#">Syarat & ketentuan</a>
+                    dan
+                    <a href="#">Kebijakan Privasi</a>
+                </span>
+
+            </div>
+
+            <!-- BUTTON -->
+
+            <button type="submit">
+                Daftar
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+@endsection
+
+@section('js')
+<script src="{{ asset('js/register.js') }}"></script>
+@endsection

@@ -13,10 +13,28 @@ return new class extends Migration
     {
         Schema::create('transaksi_kas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user')->unique()->constrained('users')->cascadeOnDelete();
-            $table->enum('tipe', ['masuk', 'keluar']);
-            $table->integer('jumlah');
-            $table->enum('referensi', ['payable', 'receiveable']);
+            $table->date('tanggal');
+            $table->string('keterangan');
+            $table->decimal('nominal_bayar', 15, 2);
+            $table->enum('metode_pembayaran', [
+                'Cash',
+                'Bank'
+        ]);
+        
+        $table->enum('tipe_transaksi', [
+            'Pemasukan',
+            'Pengeluaran'
+        ]);
+
+        $table->foreignId('akun_id')
+              ->constrained('akun_keuangan')
+              ->cascadeOnDelete();
+
+        $table->foreignId('mitra_id')
+              ->constrained('mitra_bisnis')
+              ->cascadeOnDelete();
+
+        $table->timestamps();
         });
     }
 

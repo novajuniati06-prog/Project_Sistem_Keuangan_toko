@@ -102,6 +102,7 @@ thead th{
     color:white;
     padding:18px;
     font-size:16px;
+    text-align:left;
 }
 
 thead th:first-child{
@@ -134,10 +135,6 @@ tbody td:last-child{
 
 .aksi{
     display:flex;
-
-    justify-content:center;
-    align-items:center;
-
     gap:10px;
 }
 
@@ -210,14 +207,20 @@ tbody td:last-child{
     color:white;
 }
 
-/* ================= TABLE ALIGN ================= */
+table{
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0 10px;
+}
+
+/* ALIGN */
 
 thead th,
 tbody td{
     text-align:left;
 }
 
-/* ================= KOLOM AKSI ================= */
+/* KOLOM AKSI */
 
 th:last-child,
 td:last-child{

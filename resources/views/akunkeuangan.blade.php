@@ -1,9 +1,9 @@
 @extends('layouts.add')
 
-@section('title', 'Mitra Bisnis')
+@section('title', 'Akun Keuangan')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/mitrabisnis.css') }}">
+<link rel="stylesheet" href="{{ asset('css/akunkeuangan.css') }}">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 @endsection
 
@@ -40,7 +40,7 @@
 
             </li>
 
-            <li class="active">
+            <li>
 
                 <a href="{{ route('mitrabisnis') }}">
 
@@ -52,9 +52,9 @@
 
             </li>
 
-            <li>
+            <li class="active">
 
-                <a href="#">
+                <a href="{{ route('akunkeuangan') }}">
 
                     <i class='bx bx-wallet'></i>
 
@@ -118,6 +118,18 @@
 
                 </div>
 
+                <div class="profile-dropdown">
+
+                    <a href="{{ route('login') }}">
+
+                        <i class='bx bx-log-out'></i>
+
+                        Logout
+
+                    </a>
+
+                </div>
+
             </div>
 
         </div>
@@ -125,7 +137,7 @@
         <!-- TITLE -->
 
         <h1 class="title">
-            Mitra Bisnis
+            Akun Keuangan
         </h1>
 
         <!-- ACTION -->
@@ -160,7 +172,7 @@
 
                 <input
                     type="text"
-                    placeholder="Cari Mitra Bisnis"
+                    placeholder="Cari"
                 >
 
             </div>
@@ -176,10 +188,8 @@
                 <tr>
 
                     <th>No</th>
-                    <th>Nama Perusahaan</th>
-                    <th>Alamat Perusahaan</th>
-                    <th>Informasi Kontak</th>
-                    <th>Status Mitra</th>
+                    <th>Nomor Akun</th>
+                    <th>Nama Akun</th>
                     <th>Aksi</th>
 
                 </tr>
@@ -191,10 +201,8 @@
                 <tr>
 
                     <td>1</td>
-                    <td>PT ABC</td>
-                    <td>Sei panas</td>
-                    <td>+62 877 8120 8594</td>
-                    <td>Vendor</td>
+                    <td>AK-1100</td>
+                    <td>Bank</td>
 
                     <td class="aksi">
 
@@ -241,5 +249,5 @@
 @endsection
 
 @section('js')
-<script src="{{ asset('js/mitrabisnis.js') }}"></script>
+<script src="{{ asset('js/dashboard.js') }}"></script>
 @endsection

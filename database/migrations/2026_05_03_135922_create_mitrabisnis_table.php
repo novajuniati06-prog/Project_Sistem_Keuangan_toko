@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('purchases', function (Blueprint $table) {
+        Schema::create('mitra_bisnis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_vendor')->unique()->constrained('vendors')->cascadeOnDelete();
-            $table->foreignId('id_user')->unique()->constrained('users')->cascadeOnDelete();
-            $table->date('tanggal');
+            $table->string('nama_perusahaan');
+            $table->string('alamat_perusahaan');
+            $table->string('informasi_kontak');
+            $table->string('status_mitra');
+            $table->timestamps();
         });
     }
 
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('purchases');
+        Schema::dropIfExists('mitra_bisnis');
     }
 };
