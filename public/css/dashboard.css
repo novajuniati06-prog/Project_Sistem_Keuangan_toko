@@ -1,148 +1,166 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
 }
 
-body {
-    background: #edf1f7;
-    overflow: hidden;
+body{
+    background:#edf1f7;
 }
 
-/* CONTAINER */
-
-.dashboard-container {
-    display: flex;
-    height: 100vh;
+.container{
+    display:flex;
 }
 
-/* SIDEBAR */
+/* ================= SIDEBAR ================= */
 
-.sidebar {
-    width: 220px;
-    background: linear-gradient(180deg, #17389c 0%, #3461ff 100%);
-    padding: 18px 14px;
-    color: white;
-    display: flex;
-    flex-direction: column;
+.sidebar{
+    width:250px;
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        180deg,
+        #132a85 0%,
+        #1a379f 35%,
+        #2148c0 70%,
+        #2f66ff 100%
+    );
+
+    padding:20px;
+    box-shadow:
+    4px 0 25px rgba(0,0,0,0.15);
 }
 
-/* LOGO */
+.logo{
+    display:flex;
+    align-items:center;
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 28px;
+    gap:14px;
+
+    margin-bottom:50px;
+
+    padding-left:8px;
 }
 
-.logo img {
-    width: 56px;
-    height: 56px;
-    border-radius: 14px;
-    object-fit: cover;
+.logo img{
+    width:95px;
+    height:95px;
+
+    object-fit:cover;
+
+    border-radius:22px;
 }
 
-.logo-text h2 {
-    font-size: 15px;
-    line-height: 1.1;
+.logo h2{
+    color:white;
+
+    line-height:22px;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    letter-spacing:0.5px;
+    margin-top:32px;
 }
 
-/* MENU */
-
-.menu {
-    list-style: none;
+.sidebar ul{
+    list-style:none;
 }
 
-.menu li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 14px;
-    border-radius: 12px;
-    margin-bottom: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 14px;
+.sidebar ul li{
+    margin-bottom:18px;
 }
 
-.menu li i {
-    font-size: 20px;
+.sidebar ul li a{
+    height:60px;
+
+    display:flex;
+    align-items:center;
+
+    gap:14px;
+
+    padding:0 18px;
+
+    color:white;
+    text-decoration:none;
+
+    border-radius:10px;
+
+    font-size:22px;
 }
 
-/* .menu li.active {
-    background: #3461ff;
-} */
-
-.menu li:hover {
-    background: rgba(255, 255, 255, 0.12);
+.sidebar ul li a i{
+    font-size:28px;
 }
 
-/* MAIN */
-
-.main-content {
-    flex: 1;
-    padding: 16px 20px;
+.sidebar ul li a:hover{
+    background:rgba(255,255,255,0.07);
 }
 
-/* TOPBAR */
+.active a{
+    background:
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,0.12),
+        rgba(255,255,255,0.05)
+    );
 
-.topbar {
-    width: 100%;
-    height: 70px;
-    background: white;
-    border-radius: 14px;
-    padding: 0 20px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-bottom: 18px;
+    border:1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.08);
 }
 
-/* PROFILE */
+/* ================= MAIN ================= */
 
-.profile {
-    position: relative;
-    display: flex;
-    align-items: center;
+.main{
+    flex:1;
+    padding:25px;
 }
 
-.profile-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
+/* ================= TOPBAR ================= */
+
+.topbar{
+    height:90px;
+    background:white;
+    border-radius:10px;
+
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+
+    padding:0 30px;
 }
 
-.profile-header i {
-    font-size: 20px;
-    color: #3461ff;
+
+/* ================= WELCOME ================= */
+
+.welcome{
+    margin-top:30px;
+    color:#7d879c;
+    font-size:38px;
 }
 
-.profile-text h4 {
-    font-size: 13px;
-    color: #111827;
+.welcome span{
+    color:#3366ff;
 }
 
-.profile-text p {
-    font-size: 11px;
-    color: #6b7280;
+/* ================= CARDS ================= */
+
+.cards{
+    display:flex;
+    gap:20px;
+    margin-top:30px;
 }
 
-/* DROPDOWN */
-
-.dropdown-menu {
-    position: absolute;
-    top: 45px;
-    right: 0;
-    width: 140px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-    padding: 8px;
-    display: none;
-    z-index: 100;
+.card{
+    flex:1;
+    background:white;
+    border-radius:15px;
+    padding:20px;
 }
 
 .dropdown-menu a {
@@ -154,128 +172,162 @@ body {
     text-decoration: none;
     color: #374151;
     font-size: 14px;
-    transition: 60s;
+    transition: 0.3s;
 }
 
-.dropdown-menu a:hover {
-    background: #f3f4f6;
+.blue{
+    background:#3366ff;
 }
 
-.dropdown-menu a i {
-    font-size: 18px;
-    color: #3461ff;
+.icon i{
+    color:white;
+    font-size:28px;
 }
 
-/* SHOW DROPDOWN */
-
-.profile:hover .dropdown-menu {
-    display: block;
+.card h3{
+    font-size:16px;
+    color:#6f7b94;
 }
 
-/* CONTENT */
-
-.content h1 {
-    font-size: 28px;
-    color: #64748b;
-    margin-bottom: 18px;
+.card h2{
+    margin-top:20px;
+    font-size:38px;
 }
 
-.content h1 span {
-    color: #3461ff;
+/* ================= SUMMARY ================= */
+
+.summary{
+    margin-top:30px;
+    background:white;
+    border-radius:15px;
+    padding:25px;
+
+    min-height:260px;
 }
 
-/* CARDS */
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
-    margin-bottom: 18px;
+.summary h3{
+    color:#6f7b94;
+    margin-bottom:35px;
 }
 
-.card {
-    background: white;
-    border-radius: 14px;
-    padding: 14px;
+.summary-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:30px;
 }
 
-.card-top {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
+.circle{
+    width:50px;
+    height:50px;
+    border-radius:50%;
 }
 
-.icon {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: #3461ff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.green{
+    background:#b2f2d5;
 }
 
-.icon i {
-    color: white;
-    font-size: 18px;
+.pink{
+    background:#f7d8d8;
 }
 
-.card-top p {
-    font-size: 12px;
-    font-weight: 600;
-    color: #64748b;
-    line-height: 1.3;
+.summary-item p{
+    color:#6f7b94;
+    font-size:18px;
 }
 
-.card h2 {
-    font-size: 24px;
-    color: #111827;
+/* ================= PROFILE ================= */
+
+.profile{
+    position:relative;
 }
 
-/* CHART */
-
-.chart-box {
-    background: white;
-    border-radius: 14px;
-    padding: 16px;
-    height: 300px;
+.profile-header{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    cursor:pointer;
 }
 
-.chart-box h3 {
-    font-size: 15px;
-    color: #64748b;
-    margin-bottom: 24px;
+.user-icon{
+    font-size:30px;
+    color:#3366ff;
 }
 
-.legend {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+.profile-text h4{
+    font-size:18px;
+    color:#222;
 }
 
-.legend-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.profile-text p{
+    font-size:15px;
+    color:#666;
 }
 
-.circle {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+.dropdown-icon{
+    font-size:24px;
+    color:#3366ff;
+    transition:0.3s;
 }
 
-.green {
-    background: #a7f3d0;
+/* ================= DROPDOWN ================= */
+
+.profile-dropdown{
+    position:absolute;
+
+    top:70px;
+    right:0;
+
+    width:190px;
+
+    background:white;
+
+    border-radius:16px;
+
+    padding:10px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateY(10px);
+
+    transition:0.3s;
+
+    z-index:100;
 }
 
-.pink {
-    background: #fbcfe8;
+.profile-dropdown.show{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
 }
 
-.legend-item span {
-    font-size: 13px;
-    color: #64748b;
-    font-weight: 500;
+.profile-dropdown a{
+    height:55px;
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    padding:0 15px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    color:#444;
+
+    font-size:18px;
+}
+
+.profile-dropdown a:hover{
+    background:#edf1ff;
+}
+
+.profile-dropdown a i{
+    font-size:24px;
+    color:#3366ff;
 }

@@ -1,105 +1,136 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Delta Finance Login</title>
+@extends('layouts.add')
 
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="{{ asset('css/login.css') }}">
-</head>
-<body>
+@section('title', 'Login')
 
-  <div class="container">
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/login.css') }}">
+@endsection
+
+@section('content')
+
+<div class="container">
 
     <!-- LEFT -->
+
     <div class="left">
 
-      <div class="logo-text">
-        <h1>Delta<br>Finance</h1>
+        <div class="logo">
 
-        <div class="line"></div>
+            <h1>
+                Delta <br>
+                Finance
+            </h1>
 
-        <p>
-          Kelola keuangan bisnis Anda<br>
-          lebih mudah, aman, dan efisien
-        </p>
-      </div>
+            <p>
+                Kelola keuangan bisnis Anda <br>
+                lebih mudah, aman, dan efisien
+            </p>
 
-      <div class="illustration">
-        <img src="{{ asset('image/img.png') }}" alt="finance illustration">
-      </div>
+        </div>
+
+        <img src="{{ asset('image/img.png') }}" class="illustration">
 
     </div>
 
-
     <!-- RIGHT -->
+
     <div class="right">
 
-      <div class="login-box">
+        <div class="icon">
+            <i class='bx bxs-lock'></i>
+        </div>
 
-       <div class="lock-icon">
-  <i class="fa-solid fa-lock"></i>
-      </div>
+        <h1>Selamat Datang !</h1>
 
-        <h2>Selamat Datang !</h2>
-
-        <p class="subtitle">
-          Login untuk melanjutkan dan kelola keuangan Anda!
+        <p>
+            Login untuk melanjutkan dan kelola keuangan Anda!
         </p>
 
-        <form>
+        <form action="/login" method="POST">
+        @csrf
 
-          <div class="input-group">
             <label>Email</label>
-            <input type="email" placeholder="Masukkan email Anda">
-          </div>
 
-          <div class="input-group">
+            <input
+                type="email"
+                name="email"
+                placeholder="Masukkan email Anda"
+            >
+
             <label>Kata Sandi</label>
-            <input type="password" placeholder="Masukkan kata sandi Anda">
-          </div>
 
-          <div class="options">
+            <input
+                type="password"
+                name="password"
+                placeholder="Masukkan kata sandi Anda"
+            >
+
             <div class="remember">
-              <input type="checkbox">
-              <span>Ingat saya</span>
+
+                <div class="check">
+
+                    <input type="checkbox">
+
+                    <span>Ingat saya</span>
+
+                </div>
+
+                <a href="#">
+                    Lupa kata sandi?
+                </a>
+
             </div>
 
-            <a href="#">Lupa kata sandi?</a>
-          </div>
-
-          <button type="submit" class="login-btn">
-            Login
-          </button>
+            <button type="submit">
+                Login
+            </button>
 
         </form>
 
+        <!-- DIVIDER -->
+
         <div class="divider">
-          <span>atau masuk dengan</span>
+            <span>atau masuk dengan</span>
         </div>
 
-        <button class="google-btn">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="">
-          Google
-        </button>
+        <!-- GOOGLE -->
+
+        <div class="google">
+
+            <button type="button">
+
+                <img
+                    src="https://cdn-icons-png.flaticon.com/512/300/300221.png"
+                    alt=""
+                >
+
+                Google
+
+            </button>
+
+        </div>
+
+        <!-- REGISTER -->
+
+        <p class="register">
+
+            Belum punya akun?
+
+            <a href="{{ route('register') }}">
+                Klik disini
+            </a>
 
         <p class="signup">
           Belum punya akun?
           <a href="register">Klik disini</a>
         </p>
 
-      </div>
-
     </div>
 
-  </div>
+</div>
 
-</body>
-</html>
+@endsection
+
+@section('js')
+<script src="{{ asset('js/login.js') }}"></script>
+@endsection

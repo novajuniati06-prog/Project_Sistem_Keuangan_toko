@@ -1,24 +1,35 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
 
 Route::get('/register', function () {
     return view('register');
-});
-
-Route::get('/login', [LoginController::class, 'index']);
-Route::post('/login', [LoginController::class, 'login']);
+})->name('register');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-});
+})->name('dashboard');
 
 Route::get('/mitrabisnis', function () {
     return view('mitrabisnis');
-});
-// Route::get('/logout', [LoginController::class, 'logout']);
+})->name('mitrabisnis');
+
+Route::get('/akunkeuangan', function () {
+    return view('akunkeuangan');
+})->name('akunkeuangan');
+
+Route::post('/register', [AuthController::class, 'register']);
+
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::get('/logout', [AuthController::class, 'logout']);
