@@ -1,3 +1,7 @@
+@php
+    use Illuminate\Support\Facades\Auth;
+@endphp
+
 @extends('layouts.add')
 
 @section('title', 'Dashboard')
@@ -28,6 +32,8 @@
 
         <ul>
 
+            <!-- DASHBOARD -->
+
             <li class="active">
 
                 <a href="{{ route('dashboard') }}">
@@ -40,33 +46,25 @@
 
             </li>
 
-            <li>
-
-                <a href="{{ route('mitrabisnis') }}">
-
-                    <i class='bx bx-group'></i>
-
-                    Mitra Bisnis
-
-                </a>
-
-            </li>
+            <!-- LIMIT BUDGET -->
 
             <li>
 
-                <a href="{{ route('akunkeuangan') }}">
+                <a href="{{ route('limitbudget') }}">
 
                     <i class='bx bx-wallet'></i>
 
-                    Akun Keuangan
+                    Limit Budget
 
                 </a>
 
             </li>
 
+            <!-- TRANSAKSI -->
+
             <li>
 
-                <a href="#">
+                <a href="{{ route('pemasukan') }}">
 
                     <i class='bx bx-credit-card'></i>
 
@@ -76,9 +74,11 @@
 
             </li>
 
+            <!-- LAPORAN -->
+
             <li>
 
-                <a href="#">
+                <a href="{{ route('laporankeuangan') }}">
 
                     <i class='bx bx-file'></i>
 
@@ -96,55 +96,19 @@
 
     <div class="main">
 
-        <!-- TOPBAR -->
-
-        <div class="topbar">
-
-            <div class="profile">
-
-    <div class="profile-header">
-
-        <i class='bx bx-user user-icon'></i>
-
-        <div class="profile-text">
-
-            <h4>Nama</h4>
-
-            <p>Administrator</p>
-
-        </div>
-
-        <i class='bx bx-chevron-down dropdown-icon'></i>
-
-    </div>
-
-    <!-- DROPDOWN -->
-
-    <div class="profile-dropdown">
-
-        <a href="{{ route('login') }}">
-
-            <i class='bx bx-log-out'></i>
-
-            Logout
-
-        </a>
-
-    </div>
-
-</div>
-
-        </div>
+       @include('partials.topbar')
 
         <!-- TITLE -->
 
         <h1 class="welcome">
-            Welcome back, <span>(nama)</span> !
+            Welcome back, <span>{{ auth()->user()->name ?? 'Guest' }}</span> !
         </h1>
 
         <!-- CARDS -->
 
         <div class="cards">
+
+            <!-- PENGELUARAN -->
 
             <div class="card">
 
@@ -155,15 +119,19 @@
                     </div>
 
                     <h3>
-                        Transaksi Keluar <br>
-                        Hari ini
+                        Total <br>
+                        Pengeluaran
                     </h3>
 
                 </div>
 
-                <h2>Rp. -</h2>
+                <h2>
+                    Rp {{ number_format($totalPengeluaran,0,',','.') }}
+                </h2>
 
             </div>
+
+            <!-- PEMASUKAN -->
 
             <div class="card">
 
@@ -174,15 +142,19 @@
                     </div>
 
                     <h3>
-                        Transaksi Masuk <br>
-                        Hari ini
+                        Total <br>
+                        Pemasukan
                     </h3>
 
                 </div>
 
-                <h2>Rp. -</h2>
+                <h2>
+                    Rp {{ number_format($totalPemasukan,0,',','.') }}
+                </h2>
 
             </div>
+
+            <!-- SALDO -->
 
             <div class="card">
 
@@ -193,15 +165,19 @@
                     </div>
 
                     <h3>
-                        Total Transaksi <br>
-                        Hari ini
+                        Saldo <br>
+                        Saat Ini
                     </h3>
 
                 </div>
 
-                <h2>Rp. -</h2>
+                <h2>
+                    Rp {{ number_format($saldo,0,',','.') }}
+                </h2>
 
             </div>
+
+            <!-- TOTAL TRANSAKSI -->
 
             <div class="card">
 
@@ -212,39 +188,61 @@
                     </div>
 
                     <h3>
-                        Total Transaksi <br>
-                        Keseluruhan
+                        Total <br>
+                        Transaksi
                     </h3>
 
                 </div>
 
-                <h2>Rp. -</h2>
+                <h2>
+                    {{ $totalTransaksi }}
+                </h2>
 
             </div>
 
         </div>
 
-        <!-- RINGKASAN -->
+        <!-- TRANSAKSI TERBARU -->
 
         <div class="summary">
 
-            <h3>Ringkasan Bulan ini</h3>
+            <h3>Transaksi Terbaru</h3>
+
+            @forelse ($transaksiTerbaru as $item)
 
             <div class="summary-item">
 
-                <div class="circle green"></div>
+                @if($item->tipe_transaksi == 'Pemasukan')
 
-                <p>Transaksi Masuk</p>
+                    <div class="circle green"></div>
+
+                @else
+
+                    <div class="circle pink"></div>
+
+                @endif
+
+                <p>
+
+                    {{ $item->keterangan }}
+
+                    -
+
+                    Rp {{ number_format($item->nominal_bayar,0,',','.') }}
+
+                </p>
 
             </div>
+
+            @empty
 
             <div class="summary-item">
 
-                <div class="circle pink"></div>
-
-                <p>Transaksi Keluar</p>
+                <p>Belum ada transaksi</p>
 
             </div>
+
+            @endforelse
 
         </div>
 
@@ -254,6 +252,3 @@
 
 @endsection
 
-@section('js')
-<script src="{{ asset('js/dashboard.js') }}"></script>
-@endsection

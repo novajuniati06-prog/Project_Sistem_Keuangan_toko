@@ -27,12 +27,9 @@ return new class extends Migration
         ]);
 
         $table->foreignId('akun_id')
-              ->constrained('akun_keuangan')
+              ->constrained('limit_budget')
               ->cascadeOnDelete();
 
-        $table->foreignId('mitra_id')
-              ->constrained('mitra_bisnis')
-              ->cascadeOnDelete();
 
         $table->timestamps();
         });

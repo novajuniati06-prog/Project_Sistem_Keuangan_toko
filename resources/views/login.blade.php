@@ -46,6 +46,16 @@
             Login untuk melanjutkan dan kelola keuangan Anda!
         </p>
 
+        @if(session('error'))
+
+    <div class="error-message">
+
+        {{ session('error') }}
+
+    </div>
+
+@endif
+
         <form action="/login" method="POST">
         @csrf
 
@@ -57,13 +67,20 @@
                 placeholder="Masukkan email Anda"
             >
 
-            <label>Kata Sandi</label>
+           <label>Kata Sandi</label>
 
-            <input
-                type="password"
-                name="password"
-                placeholder="Masukkan kata sandi Anda"
-            >
+<div class="password-box">
+
+    <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Masukkan kata sandi Anda"
+    >
+
+    <i class='bx bx-hide toggle-password' id="togglePassword"></i>
+
+</div>
 
             <div class="remember">
 
@@ -89,26 +106,9 @@
 
         <!-- DIVIDER -->
 
-        <div class="divider">
+        <!-- <div class="divider">
             <span>atau masuk dengan</span>
-        </div>
-
-        <!-- GOOGLE -->
-
-        <div class="google">
-
-            <button type="button">
-
-                <img
-                    src="https://cdn-icons-png.flaticon.com/512/300/300221.png"
-                    alt=""
-                >
-
-                Google
-
-            </button>
-
-        </div>
+        </div> -->
 
         <!-- REGISTER -->
 
@@ -130,4 +130,8 @@
 
 @section('js')
 <script src="{{ asset('js/login.js') }}"></script>
+
+<!-- <script>
+    window.history.forward();
+</script> -->
 @endsection

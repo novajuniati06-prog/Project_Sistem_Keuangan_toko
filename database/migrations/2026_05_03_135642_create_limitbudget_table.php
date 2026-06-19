@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('akun_keuangan', function (Blueprint $table) {
+        Schema::create('limit_budget', function (Blueprint $table) {
             $table->id();
-            $table->string('nomor_akun');
-            $table->string('nama_akun');
+            $table->date('tanggal_diubah');
+            $table->string('deskripsi');
+            $table->bigInteger('total_limit');
+            $table->bigInteger('sisa_limit');
+            $table->string('status');
             $table->timestamps();
-            
-
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('akun_keuangan');
+        Schema::dropIfExists('limit_budget');
     }
 };

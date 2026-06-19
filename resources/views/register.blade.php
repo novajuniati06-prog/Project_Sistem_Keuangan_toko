@@ -92,21 +92,81 @@
     <small class="error-text">{{ $message }}</small>
 @enderror
 
+           <!-- NO TELEPON -->
+
+<label>No Telepon</label>
+
+<div class="input-box">
+
+    <i class='bx bx-phone'></i>
+
+    <input
+    type="text"
+    name="phone"
+    placeholder="Masukkan nomor telepon"
+    required
+    minlength="10"
+>
+
+@error('phone')
+
+    <small style="color:red;">
+        {{ $message }}
+    </small>
+
+@enderror
+
+</div>
+
+<!-- NAMA TOKO -->
+
+<label>Nama Toko</label>
+
+<div class="input-box">
+
+    <i class='bx bx-store'></i>
+
+    <input
+        type="text"
+        name="shop_name"
+        placeholder="Masukkan nama toko"
+    >
+
+</div>
+
+<!-- ALAMAT TOKO -->
+
+<label>Alamat Toko</label>
+
+<div class="input-box textarea-box">
+
+    <i class='bx bx-map'></i>
+
+    <textarea
+        name="shop_address"
+        placeholder="Masukkan alamat toko"
+    ></textarea>
+
+</div>
+
             <!-- PASSWORD -->
 
             <label>Kata Sandi</label>
 
-            <div class="input-box">
+            <div class="input-box password-box">
 
-                <i class='bx bx-lock-alt'></i>
+    <i class='bx bx-lock'></i>
 
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Masukkan kata sandi Anda"
-                >
+    <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Masukkan kata sandi Anda"
+    >
 
-            </div>
+    <i class='bx bx-hide eye-icon' id="togglePassword"></i>
+
+</div>
             @error('password')
     <small class="error-text">{{ $message }}</small>
 @enderror
@@ -115,17 +175,20 @@
 
             <label>Konfirmasi Kata Sandi</label>
 
-            <div class="input-box">
+            <div class="input-box password-box">
 
-                <i class='bx bx-lock-alt'></i>
+    <i class='bx bx-lock'></i>
 
-                <input
-                    type="password"
-                    name="password_confirmation"
-                    placeholder="Ulangi kata sandi Anda"
-                >
+    <input
+        type="password"
+        name="password_confirmation"
+        id="confirmPassword"
+        placeholder="Ulangi kata sandi Anda"
+    >
 
-            </div>
+    <i class='bx bx-hide eye-icon' id="toggleConfirmPassword"></i>
+
+</div>
             @error('password_confirmation')
     <small class="error-text">{{ $message }}</small>
 @enderror
