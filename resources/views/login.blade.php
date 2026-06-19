@@ -120,6 +120,9 @@
                 Klik disini
             </a>
 
+        <p class="signup">
+          Belum punya akun?
+          <a href="register">Klik disini</a>
         </p>
 
     </div>
